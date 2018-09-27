@@ -5,7 +5,7 @@ namespace arch {
 
 	WindowSystem::WindowSystem() {
 		if (singleton)
-			std::runtime_error("");
+			std::runtime_error("There can only be one instance of WindowSystem.");
 
 		singleton = this;
 		m_currentWindow = std::make_unique<Window>("Arch Engine", 800, 600);

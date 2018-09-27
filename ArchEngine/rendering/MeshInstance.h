@@ -2,9 +2,14 @@
 #include <glm/glm.hpp>
 #include "Model.h"
 
+
 namespace arch {
-	class ModelInstance {
+	class ShaderProgram;
+
+	class MeshInstance {
 	public:
+		MeshInstance(Mesh* mesh);
+
 		void Translate(float x, float y, float z);
 
 		void Translate(const glm::vec3& amount);
@@ -35,14 +40,16 @@ namespace arch {
 
 		glm::vec3 GetScale() const;
 
-		void Render();
+		glm::mat4 GetTransform() const;
+
+		void Render(ShaderProgram& shader);
 
 	private:
 		glm::vec3 m_position{0, 0, 0};
 		glm::vec3 m_rotation{0, 0, 0};
 		glm::vec3 m_scale{1, 1, 1};
 
-		Model* m_sourceModel = nullptr;
+		Mesh* m_sourceMesh= nullptr;
 
 	};
 }

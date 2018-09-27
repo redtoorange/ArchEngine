@@ -77,6 +77,9 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -104,6 +107,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -121,33 +125,40 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>C:\workspace\cpp\projects\ArchEngine\thirdparty\sdl2\lib\x64;C:\workspace\cpp\projects\ArchEngine\thirdparty\assimp\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;SDL2.lib;SDL2main.lib;assimp-vc140-mt.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="input\InputEvent.cpp" />
     <ClCompile Include="input\InputSystem.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="rendering\Mesh.cpp" />
     <ClCompile Include="rendering\Model.cpp" />
-    <ClCompile Include="rendering\ModelInstance.cpp" />
+    <ClCompile Include="rendering\MeshInstance.cpp" />
     <ClCompile Include="rendering\RenderSystem.cpp" />
     <ClCompile Include="rendering\ShaderProgram.cpp" />
     <ClCompile Include="rendering\Texture.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="window\Window.cpp" />
     <ClCompile Include="window\WindowSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="GameScreen.h" />
     <ClInclude Include="input\IInputListener.h" />
     <ClInclude Include="input\InputEvent.h" />
     <ClInclude Include="input\InputSystem.h" />
+    <ClInclude Include="IScreen.h" />
     <ClInclude Include="rendering\Mesh.h" />
     <ClInclude Include="rendering\Model.h" />
-    <ClInclude Include="rendering\ModelInstance.h" />
+    <ClInclude Include="rendering\MeshInstance.h" />
     <ClInclude Include="rendering\RenderSystem.h" />
     <ClInclude Include="rendering\ShaderProgram.h" />
     <ClInclude Include="rendering\Texture.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="window\Window.h" />
     <ClInclude Include="window\WindowSystem.h" />
   </ItemGroup>

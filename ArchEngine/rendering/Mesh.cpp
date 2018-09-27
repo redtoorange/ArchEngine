@@ -58,6 +58,5 @@ namespace arch {
 	void Mesh::Render() {
 		glBindVertexArray(m_vbo);
 		glDrawElements(GL_TRIANGLES, m_indices.size(), GL_UNSIGNED_INT, 0);
-		glBindVertexArray(0);
 	}
 }

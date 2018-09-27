@@ -8,7 +8,7 @@ namespace arch {
 
 	InputSystem::InputSystem() {
 		if (singleton)
-			std::runtime_error("");
+			std::runtime_error("There can only be one instance of InputSystem.");
 
 		singleton = this;
 

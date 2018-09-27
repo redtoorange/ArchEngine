@@ -66,8 +66,17 @@
     <ClCompile Include="rendering\Texture.cpp">
       <Filter>Source Files\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="rendering\ModelInstance.cpp">
+    <ClCompile Include="GameScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering\MeshInstance.cpp">
       <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,8 +110,20 @@
     <ClInclude Include="rendering\ShaderProgram.h">
       <Filter>Header Files\rendering</Filter>
     </ClInclude>
-    <ClInclude Include="rendering\ModelInstance.h">
+    <ClInclude Include="IScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rendering\MeshInstance.h">
       <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

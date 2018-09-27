@@ -7,7 +7,7 @@ namespace arch {
 
 	RenderSystem::RenderSystem() {
 		if (singleton)
-			std::runtime_error("");
+			std::runtime_error("There can only be one instance of RenderSystem.");
 
 		singleton = this;
 	}
@@ -16,10 +16,8 @@ namespace arch {
 		singleton = nullptr;
 	}
 
-	void RenderSystem::Render() {
+	void RenderSystem::ClearScreen() {
 		glClearColor(m_clearColor.r, m_clearColor.g, m_clearColor.b, m_clearColor.a);
-		glClear(GL_COLOR_BUFFER_BIT);
-
-		// Render some stuff
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 }
