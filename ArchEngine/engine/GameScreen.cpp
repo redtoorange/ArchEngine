@@ -26,16 +26,19 @@ namespace arch {
 
 	GameScreen::GameScreen() {
 		mesh = std::make_unique<Mesh>(positions, colors, uvs, normals, indices);
-		shader = std::make_unique<ShaderProgram>("assets/shaders/basic.vert", "assets/shaders/basic.frag");
+		shader = std::make_unique<ShaderProgram>(
+			"C:\\workspace\\cpp\\projects\\ArchEngine\\shaders\\basic.vert", 
+			"C:\\workspace\\cpp\\projects\\ArchEngine\\shaders\\basic.frag");
 		instance = std::make_unique<MeshInstance>(mesh.get());
 	}
 
 	GameScreen::~GameScreen() {}
 
-	void GameScreen::Update(float deltaTime) {}
+	void GameScreen::Update(float deltaTime) {
+		instance->Rotate(0, 100 * deltaTime, 0);
+	}
 
 	void GameScreen::Render() {
-		
 		instance->Render(*shader);
 	}
 

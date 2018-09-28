@@ -68,12 +68,12 @@ namespace arch {
 	}
 
 	void MeshInstance::Render(ShaderProgram& shader) {
-		//shader.SetUniformMat4("transform", GetTransform());
+		shader.SetUniformMat4("transform", GetTransform());
 		m_sourceMesh->Render();
 	}
 
 	glm::mat4 MeshInstance::GetTransform() const {
-		glm::mat4 matrix;
+		glm::mat4 matrix(1);
 
 		matrix = glm::translate(matrix, m_position);
 

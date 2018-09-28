@@ -87,7 +87,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\workspace\cpp\projects\ArchEngine\ArchEngine;C:\workspace\cpp\projects\ArchEngine\ArchEngine\window;C:\workspace\cpp\projects\ArchEngine\ArchEngine\rendering;C:\workspace\cpp\projects\ArchEngine\ArchEngine\input;C:\workspace\cpp\projects\ArchEngine\thirdparty\glad\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\sdl2\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\assimp\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\stb;C:\workspace\cpp\projects\ArchEngine\thirdparty\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\workspace\cpp\projects\ArchEngine\ArchEngine;C:\workspace\cpp\projects\ArchEngine\ArchEngine\util;C:\workspace\cpp\projects\ArchEngine\ArchEngine\engine;C:\workspace\cpp\projects\ArchEngine\ArchEngine\window;C:\workspace\cpp\projects\ArchEngine\ArchEngine\rendering;C:\workspace\cpp\projects\ArchEngine\ArchEngine\input;C:\workspace\cpp\projects\ArchEngine\thirdparty\glad\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\sdl2\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\assimp\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\stb;C:\workspace\cpp\projects\ArchEngine\thirdparty\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\workspace\cpp\projects\ArchEngine\thirdparty\sdl2\lib\x64;C:\workspace\cpp\projects\ArchEngine\thirdparty\assimp\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -118,7 +118,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\workspace\cpp\projects\ArchEngine\ArchEngine;C:\workspace\cpp\projects\ArchEngine\ArchEngine\window;C:\workspace\cpp\projects\ArchEngine\ArchEngine\rendering;C:\workspace\cpp\projects\ArchEngine\ArchEngine\input;C:\workspace\cpp\projects\ArchEngine\thirdparty\glad\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\sdl2\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\assimp\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\stb;C:\workspace\cpp\projects\ArchEngine\thirdparty\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\workspace\cpp\projects\ArchEngine\ArchEngine;C:\workspace\cpp\projects\ArchEngine\ArchEngine\util;C:\workspace\cpp\projects\ArchEngine\ArchEngine\engine;C:\workspace\cpp\projects\ArchEngine\ArchEngine\window;C:\workspace\cpp\projects\ArchEngine\ArchEngine\rendering;C:\workspace\cpp\projects\ArchEngine\ArchEngine\input;C:\workspace\cpp\projects\ArchEngine\thirdparty\glad\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\sdl2\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\assimp\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\stb;C:\workspace\cpp\projects\ArchEngine\thirdparty\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -129,36 +129,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="GameScreen.cpp" />
-    <ClCompile Include="glad.c" />
+    <ClCompile Include="engine\Engine.cpp" />
+    <ClCompile Include="engine\GameScreen.cpp" />
     <ClCompile Include="input\InputEvent.cpp" />
     <ClCompile Include="input\InputSystem.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="rendering\Camera.cpp" />
     <ClCompile Include="rendering\Mesh.cpp" />
     <ClCompile Include="rendering\Model.cpp" />
     <ClCompile Include="rendering\MeshInstance.cpp" />
     <ClCompile Include="rendering\RenderSystem.cpp" />
     <ClCompile Include="rendering\ShaderProgram.cpp" />
     <ClCompile Include="rendering\Texture.cpp" />
-    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="util\glad.c" />
+    <ClCompile Include="util\Timer.cpp" />
     <ClCompile Include="window\Window.cpp" />
     <ClCompile Include="window\WindowSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine.h" />
-    <ClInclude Include="GameScreen.h" />
+    <ClInclude Include="engine\Engine.h" />
+    <ClInclude Include="engine\GameScreen.h" />
+    <ClInclude Include="engine\IScreen.h" />
     <ClInclude Include="input\IInputListener.h" />
     <ClInclude Include="input\InputEvent.h" />
     <ClInclude Include="input\InputSystem.h" />
-    <ClInclude Include="IScreen.h" />
+    <ClInclude Include="rendering\Camera.h" />
     <ClInclude Include="rendering\Mesh.h" />
     <ClInclude Include="rendering\Model.h" />
     <ClInclude Include="rendering\MeshInstance.h" />
     <ClInclude Include="rendering\RenderSystem.h" />
     <ClInclude Include="rendering\ShaderProgram.h" />
     <ClInclude Include="rendering\Texture.h" />
-    <ClInclude Include="Timer.h" />
+    <ClInclude Include="util\Timer.h" />
     <ClInclude Include="window\Window.h" />
     <ClInclude Include="window\WindowSystem.h" />
   </ItemGroup>

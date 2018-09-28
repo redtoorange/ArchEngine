@@ -3,6 +3,7 @@
 #include <fstream>
 #include <SDL.h>
 #include <vector>
+#include <glm/gtc/type_ptr.hpp>
 
 namespace {
 	const unsigned int MAX_LOG_LENGTH = 1024;
@@ -99,5 +100,25 @@ namespace arch {
 
 	void ShaderProgram::BindProgram() {
 		glUseProgram(m_programID);
+	}
+
+	ShaderProgram::~ShaderProgram() {
+		glDeleteProgram(m_programID);
+	}
+
+	GLint ShaderProgram::GetUniformLocation(const std::string& name) const {
+		return glGetUniformLocation(m_programID, name.c_str());
+	}
+
+	void ShaderProgram::SetUniformMat4(const std::string& name, const glm::mat4& matrix) const {
+		glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, glm::value_ptr(matrix));
+	}
+
+	void ShaderProgram::SetUniformVec4(const std::string& name, const glm::vec4& vector) const {
+		glUniform4fv(GetUniformLocation(name), 1, glm::value_ptr(vector));
+	}
+
+	void ShaderProgram::SetUniformVec3(const std::string& name, const glm::vec3& vector) const {
+		glUniform3fv(GetUniformLocation(name), 1, glm::value_ptr(vector));
 	}
 }

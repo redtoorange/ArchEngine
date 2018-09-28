@@ -31,12 +31,21 @@
     <Filter Include="Source Files\window">
       <UniqueIdentifier>{a02fb565-72e7-4dd8-8ef1-c5a9ffbbb3b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\engine">
+      <UniqueIdentifier>{496e4dcc-4f1c-4044-a7a2-c00c41d7fe24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{a6560d45-8fd4-45a0-aa2b-26bfeac66028}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine">
+      <UniqueIdentifier>{97f06c74-6d3e-4080-8ecf-949cb8ad9aa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\util">
+      <UniqueIdentifier>{b6e34791-94c6-433e-a111-da1ef443e630}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="input\InputSystem.cpp">
@@ -66,17 +75,23 @@
     <ClCompile Include="rendering\Texture.cpp">
       <Filter>Source Files\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="GameScreen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="rendering\MeshInstance.cpp">
       <Filter>Source Files\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="util\glad.c">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\Timer.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\Engine.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\GameScreen.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering\Camera.cpp">
+      <Filter>Source Files\rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -110,20 +125,23 @@
     <ClInclude Include="rendering\ShaderProgram.h">
       <Filter>Header Files\rendering</Filter>
     </ClInclude>
-    <ClInclude Include="IScreen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameScreen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="rendering\MeshInstance.h">
       <Filter>Header Files\rendering</Filter>
     </ClInclude>
-    <ClInclude Include="Timer.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="rendering\Camera.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\Engine.h">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\GameScreen.h">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\IScreen.h">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="util\Timer.h">
+      <Filter>Header Files\util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

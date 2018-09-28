@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
 	if (!gladLoadGLLoader(SDL_GL_GetProcAddress))
 		std::exception("Failed to initialize OpenGL context");
 
-	SDL_GL_SetSwapInterval(0);
+	SDL_GL_SetSwapInterval(1);
 	
 	std::unique_ptr<arch::GameScreen> gameScreen = std::make_unique<arch::GameScreen>();
 	engine.SetScreen(gameScreen.get());
