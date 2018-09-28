@@ -14,8 +14,6 @@ namespace arch {
 
 		void SwapBuffers();
 
-		bool ShouldClose();
-
 		Window* GetCurrentWindow() const;
 
 	private:

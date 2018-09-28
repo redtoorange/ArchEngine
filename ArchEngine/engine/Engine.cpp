@@ -70,4 +70,8 @@ namespace arch {
 		if (currentScreen)
 			currentScreen->Start();
 	}
+
+	void Engine::Quit() {
+		isRunning = false;
+	}
 }

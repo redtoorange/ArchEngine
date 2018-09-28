@@ -2,6 +2,7 @@
 #include "IInputListener.h"
 #include "InputEvent.h"
 #include <iostream>
+#include "Engine.h"
 
 namespace arch {
 	InputSystem* InputSystem::singleton = nullptr;
@@ -29,7 +30,7 @@ namespace arch {
 					switch(event.window.event) {
 					case SDL_WINDOWEVENT_CLOSE:
 						SDL_Log("Window Closed.");
-						currentWindow->SetShouldClose(true);
+						Engine::singleton->Quit();
 						break;
 					case SDL_WINDOWEVENT_MOVED:
 						SDL_Log("Window Moved.");
@@ -44,7 +45,7 @@ namespace arch {
 					switch (event.key.keysym.sym) {
 					case SDLK_ESCAPE:
 						SDL_Log("Window Closed.");
-						currentWindow->SetShouldClose(true);
+						Engine::singleton->Quit();
 						break;
 					}
 				}

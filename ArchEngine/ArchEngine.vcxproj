@@ -160,9 +160,14 @@
     <ClInclude Include="rendering\RenderSystem.h" />
     <ClInclude Include="rendering\ShaderProgram.h" />
     <ClInclude Include="rendering\Texture.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="util\Timer.h" />
     <ClInclude Include="window\Window.h" />
     <ClInclude Include="window\WindowSystem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\shaders\basic.frag" />
+    <None Include="..\shaders\basic.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

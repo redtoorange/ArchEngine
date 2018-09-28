@@ -21,14 +21,6 @@ namespace arch {
 		}
 	}
 
-	bool WindowSystem::ShouldClose() {
-		if (m_currentWindow) {
-			return m_currentWindow->ShouldClose();
-		}
-
-		return true;
-	}
-
 	Window* WindowSystem::GetCurrentWindow() const {
 		return m_currentWindow.get();
 	}

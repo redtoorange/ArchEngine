@@ -1,6 +1,7 @@
 ﻿#include "GameScreen.h"
 #include "Mesh.h"
 #include "ShaderProgram.h"
+#include "Camera.h"
 
 namespace arch {
 	namespace {
@@ -30,15 +31,22 @@ namespace arch {
 			"C:\\workspace\\cpp\\projects\\ArchEngine\\shaders\\basic.vert", 
 			"C:\\workspace\\cpp\\projects\\ArchEngine\\shaders\\basic.frag");
 		instance = std::make_unique<MeshInstance>(mesh.get());
+		camera = std::make_unique<Camera>();
 	}
 
 	GameScreen::~GameScreen() {}
 
 	void GameScreen::Update(float deltaTime) {
 		instance->Rotate(0, 100 * deltaTime, 0);
+
 	}
 
 	void GameScreen::Render() {
+
+		shader->BindProgram();
+		shader->SetUniformMat4("projection", camera->GetProjectionMatrix());
+		shader->SetUniformMat4("view", camera->GetViewMatrix());
+
 		instance->Render(*shader);
 	}
 

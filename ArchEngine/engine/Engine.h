@@ -20,6 +20,8 @@ namespace arch {
 
 		void SetScreen(IScreen* newScreen);
 
+		void Quit();
+
 	private:
 		bool isRunning = false;
 

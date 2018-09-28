@@ -42,11 +42,4 @@ namespace arch {
 	void Window::ClearWindow() {
 		glClear(GL_COLOR_BUFFER_BIT);
 	}
-
-	void Window::SetShouldClose(bool shouldClose) { m_shouldClose = shouldClose; }
-
-	bool Window::ShouldClose() const {
-		return m_shouldClose;
-	}
-
 }
