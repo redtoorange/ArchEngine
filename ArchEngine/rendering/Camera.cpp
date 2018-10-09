@@ -1,10 +1,25 @@
 ﻿#include "Camera.h"
 #include <glm/gtc/matrix_transform.hpp>
+#include <SDL.h>
 
 namespace arch {
 
 	Camera::Camera() {
 		UpdateCamera();
+	}
+
+	void Camera::Translate(float x, float y, float z) {
+		Translate({x, y, z});
+	}
+
+	void Camera::Translate(const glm::vec3& amount) {
+		glm::vec3 delta{0, 0, 0};
+
+		delta += Front * amount.z;
+		delta += Right * amount.x;
+		delta += Up * amount.y;
+
+		position += delta;
 	}
 
 	glm::mat4 Camera::GetProjectionMatrix() const {
@@ -20,9 +35,9 @@ namespace arch {
 		double yaw = rotation.z;
 
 		glm::vec3 front;
-		front.x = glm::cos(glm::radians(yaw)) * glm::cos(glm::radians(pitch));
-		front.y = glm::sin(glm::radians(pitch));
-		front.z = glm::sin(glm::radians(yaw)) * glm::cos(glm::radians(pitch));
+		front.x = static_cast<float>(glm::cos(glm::radians(yaw)) * glm::cos(glm::radians(pitch)));
+		front.y = static_cast<float>(glm::sin(glm::radians(pitch)));
+		front.z = static_cast<float>(glm::sin(glm::radians(yaw)) * glm::cos(glm::radians(pitch)));
 
 		Front = glm::normalize(front);
 

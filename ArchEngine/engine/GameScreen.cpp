@@ -2,6 +2,8 @@
 #include "Mesh.h"
 #include "ShaderProgram.h"
 #include "Camera.h"
+#include <SDL.h>
+#include <iostream>
 
 namespace arch {
 	namespace {
@@ -36,9 +38,41 @@ namespace arch {
 
 	GameScreen::~GameScreen() {}
 
-	void GameScreen::Update(float deltaTime) {
-		instance->Rotate(0, 100 * deltaTime, 0);
+	void HandleKeys(Camera* camera, float deltaTime) {
+		const Uint8* keys = SDL_GetKeyboardState(NULL);
+		glm::vec3 inputDelta{ 0, 0, 0 };
+		float speed = 10;
 
+		// Forward back
+		if (keys[SDL_SCANCODE_W])
+			inputDelta.z += 1;
+		if (keys[SDL_SCANCODE_S])
+			inputDelta.z -= 1;
+		
+		// Left right
+		if (keys[SDL_SCANCODE_A])
+			inputDelta.x -= 1;
+		if (keys[SDL_SCANCODE_D])
+			inputDelta.x += 1;
+
+		// Up down
+		if (keys[SDL_SCANCODE_LCTRL])
+			inputDelta.y -= 1;
+		if (keys[SDL_SCANCODE_SPACE])
+			inputDelta.y += 1;
+
+		if (inputDelta.x != 0 || inputDelta.y != 0 || inputDelta.z != 0) {
+			inputDelta = glm::normalize(inputDelta) * deltaTime * speed;
+			camera->Translate(inputDelta);
+		}
+	}
+
+	void GameScreen::Update(float deltaTime) {
+		HandleKeys(camera.get(), deltaTime);
+
+
+		instance->Rotate(0, 100 * deltaTime, 0);
+		camera->UpdateCamera();
 	}
 
 	void GameScreen::Render() {
