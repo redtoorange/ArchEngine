@@ -22,6 +22,15 @@ namespace arch {
 		position += delta;
 	}
 
+	void Camera::Rotate(float x, float y, float z) {
+		Rotate({x, y, z});
+	}
+
+	void Camera::Rotate(const glm::vec3& amount) {
+		rotation += amount;
+		UpdateCamera();
+	}
+
 	glm::mat4 Camera::GetProjectionMatrix() const {
 		return glm::perspective(glm::radians(fieldOfView), aspectRatio, nearClipPlane, farClipPlane);
 	}

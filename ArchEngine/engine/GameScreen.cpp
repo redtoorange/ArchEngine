@@ -4,6 +4,7 @@
 #include "Camera.h"
 #include <SDL.h>
 #include <iostream>
+#include "InputSystem.h"
 
 namespace arch {
 	namespace {
@@ -34,31 +35,33 @@ namespace arch {
 			"C:\\workspace\\cpp\\projects\\ArchEngine\\shaders\\basic.frag");
 		instance = std::make_unique<MeshInstance>(mesh.get());
 		camera = std::make_unique<Camera>();
+		SDL_SetRelativeMouseMode(SDL_TRUE);
 	}
 
 	GameScreen::~GameScreen() {}
 
 	void HandleKeys(Camera* camera, float deltaTime) {
-		const Uint8* keys = SDL_GetKeyboardState(NULL);
+		auto input = InputSystem::singleton;
+
 		glm::vec3 inputDelta{ 0, 0, 0 };
 		float speed = 10;
 
 		// Forward back
-		if (keys[SDL_SCANCODE_W])
+		if (input->IsKeyPressed(SDL_SCANCODE_W))
 			inputDelta.z += 1;
-		if (keys[SDL_SCANCODE_S])
+		if (input->IsKeyPressed(SDL_SCANCODE_S))
 			inputDelta.z -= 1;
 		
 		// Left right
-		if (keys[SDL_SCANCODE_A])
+		if (input->IsKeyPressed(SDL_SCANCODE_A))
 			inputDelta.x -= 1;
-		if (keys[SDL_SCANCODE_D])
+		if (input->IsKeyPressed(SDL_SCANCODE_D))
 			inputDelta.x += 1;
 
 		// Up down
-		if (keys[SDL_SCANCODE_LCTRL])
+		if (input->IsKeyPressed(SDL_SCANCODE_SPACE))
 			inputDelta.y -= 1;
-		if (keys[SDL_SCANCODE_SPACE])
+		if (input->IsKeyPressed(SDL_SCANCODE_LCTRL))
 			inputDelta.y += 1;
 
 		if (inputDelta.x != 0 || inputDelta.y != 0 || inputDelta.z != 0) {
@@ -67,9 +70,24 @@ namespace arch {
 		}
 	}
 
+	void GameScreen::HandleMouse() {
+		MouseState state = InputSystem::singleton->GetRelativeMouseState();
+		float mouseSensitivity = 0.05;
+		
+		camera->Rotate(-state.y * mouseSensitivity, 0, state.x * mouseSensitivity);
+
+		if (state.middle) {
+			SDL_Log("Middle mouse pressed");
+		}
+		if (state.right) {
+			SDL_Log("Right mouse pressed");
+		}
+
+	}
+
 	void GameScreen::Update(float deltaTime) {
 		HandleKeys(camera.get(), deltaTime);
-
+		HandleMouse();
 
 		instance->Rotate(0, 100 * deltaTime, 0);
 		camera->UpdateCamera();

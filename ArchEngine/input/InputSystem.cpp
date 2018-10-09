@@ -52,6 +52,23 @@ namespace arch {
 
 			}
 		}
+
+		keyState = SDL_GetKeyboardState(NULL);
+	}
+
+	MouseState InputSystem::GetRelativeMouseState() const {
+		MouseState currentState{0, 0, false, false, false};
+		
+		const auto buttons = SDL_GetRelativeMouseState(&currentState.x, &currentState.y);
+		currentState.left = SDL_BUTTON(SDL_BUTTON_LEFT) & buttons;
+		currentState.middle = SDL_BUTTON(SDL_BUTTON_MIDDLE) & buttons;
+		currentState.right = SDL_BUTTON(SDL_BUTTON_RIGHT) & buttons;
+
+		return currentState;
+	}
+
+	bool InputSystem::IsKeyPressed(int SDL_Scancode) {
+		return keyState[SDL_Scancode];
 	}
 
 	void InputSystem::AddInputListener(IInputListener* listener) {

@@ -30,6 +30,8 @@ namespace arch {
 		std::unique_ptr<Mesh> mesh;
 		std::unique_ptr<ShaderProgram> shader;
 		std::unique_ptr<Camera> camera;
+
+		void HandleMouse();
 	};
 
 }

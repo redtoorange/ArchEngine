@@ -15,6 +15,9 @@ namespace arch {
 		void Translate(float x, float y, float z);
 		void Translate(const glm::vec3& amount);
 
+		void Rotate(float x, float y, float z);
+		void Rotate(const glm::vec3& amount);
+
 	private:
 		glm::vec3 position{0, 0, 5};
 		glm::vec3 rotation{0, 0, -90.0f};
