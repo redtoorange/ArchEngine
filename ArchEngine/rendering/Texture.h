@@ -1,6 +1,11 @@
 ﻿#pragma once
+#include <glad/glad.h>
+#include <string>
 
-class Texture {
-public:
-	
-};
+namespace arch {
+	struct Texture {
+		GLuint id;
+		std::string type;
+		std::string path;
+	};
+}

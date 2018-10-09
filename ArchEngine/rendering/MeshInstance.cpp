@@ -68,8 +68,9 @@ namespace arch {
 	}
 
 	void MeshInstance::Render(ShaderProgram& shader) {
+		shader.BindProgram();
 		shader.SetUniformMat4("transform", GetTransform());
-		m_sourceMesh->Render();
+		m_sourceMesh->Render(shader);
 	}
 
 	glm::mat4 MeshInstance::GetTransform() const {

@@ -10,6 +10,9 @@ namespace arch {
 			std::runtime_error("There can only be one instance of RenderSystem.");
 
 		singleton = this;
+
+		glEnable(GL_DEPTH_TEST);
+		glDepthFunc(GL_LESS);
 	}
 
 	RenderSystem::~RenderSystem() {
@@ -18,6 +21,6 @@ namespace arch {
 
 	void RenderSystem::ClearScreen() {
 		glClearColor(m_clearColor.r, m_clearColor.g, m_clearColor.b, m_clearColor.a);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 }

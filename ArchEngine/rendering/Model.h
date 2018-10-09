@@ -2,14 +2,24 @@
 #include <vector>
 #include "Mesh.h"
 
+#include <assimp/scene.h>
+
 namespace arch {
 	class Model {
 	public:
-		void AddMesh(Mesh mesh);
+		Model(const std::string& path);
 
-		void Render();
+		virtual ~Model();
+
+		void Render(ShaderProgram& shader);
 
 	private:
-		std::vector<Mesh> modelMeshes;
+		std::string m_modelDirectory;
+		std::vector<std::unique_ptr<Mesh>> m_modelMeshes;
+
+		void LoadModel(const std::string& path);
+		void processNode(aiNode* node, const aiScene* scene);
+		void processMesh(aiMesh* mesh, const aiScene* scene);
+		std::vector<Texture> loadMaterialTextures(aiMaterial* material, aiTextureType type, std::string typeName);
 	};
 }

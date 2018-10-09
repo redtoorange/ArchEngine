@@ -27,7 +27,7 @@ namespace arch {
 		glm::vec3 WorldUp{0, 1.0f, 0};
 		glm::vec3 Right{1.0f, 0, 0};
 
-		float aspectRatio = 800.0f / 600.0f;
+		float aspectRatio = 1440.0f / 900.0f;
 		float fieldOfView = 90.0f;
 		float nearClipPlane = 0.1f;
 		float farClipPlane = 100.0f;

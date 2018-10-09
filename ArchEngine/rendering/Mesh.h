@@ -1,28 +1,31 @@
 ﻿#pragma once
 #include <vector>
 #include <glad/glad.h>
+#include "Texture.h"
 
 namespace arch {
+	class ShaderProgram;
+
 	class Mesh {
 	public:
 		Mesh(const std::vector<GLfloat>& vertices,
 		     const std::vector<GLfloat>& colors,
 		     const std::vector<GLfloat>& uvs,
 		     const std::vector<GLfloat>& normals,
-		     const std::vector<GLuint>& indices);
+		     const std::vector<GLuint>& indices,
+			 const std::vector<Texture>& textures);
 
 		~Mesh();
 
-		void Render();
+		void Render(ShaderProgram& shader);
+
+		void Destroy();
 
 	private:
-		std::vector<GLfloat> m_vertices;
-		std::vector<GLfloat> m_colors;
-		std::vector<GLfloat> m_uvs;
-		std::vector<GLfloat> m_normals;
-		std::vector<GLuint> m_indices;
+		GLuint m_vao;
+		GLuint m_indexCount;
 
-		GLuint m_vbo;
+		std::vector<Texture> m_textures;
 		std::vector<GLuint> m_buffers;
 	};
 }

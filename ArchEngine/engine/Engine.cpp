@@ -4,6 +4,7 @@
 #include "InputSystem.h"
 #include  "WindowSystem.h"
 #include <iostream>
+#include "AssetManager.h"
 
 namespace arch {
 	Engine* Engine::singleton = nullptr;
@@ -16,8 +17,13 @@ namespace arch {
 
 		// Start all subsystems
 		windowSystem = std::make_unique<WindowSystem>();
+
+		if (!gladLoadGLLoader(SDL_GL_GetProcAddress))
+			std::exception("Failed to initialize OpenGL context");
+
 		inputSystem = std::make_unique<InputSystem>();
 		renderSystem = std::make_unique<RenderSystem>();
+		assetManager = std::make_unique<AssetManager>();
 	}
 
 	Engine::~Engine() {
@@ -25,6 +31,7 @@ namespace arch {
 		renderSystem.reset();
 		inputSystem.reset();
 		windowSystem.reset();
+		assetManager.reset();
 
 		singleton = nullptr;
 	}

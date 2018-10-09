@@ -87,10 +87,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\workspace\cpp\projects\ArchEngine\ArchEngine;C:\workspace\cpp\projects\ArchEngine\ArchEngine\util;C:\workspace\cpp\projects\ArchEngine\ArchEngine\engine;C:\workspace\cpp\projects\ArchEngine\ArchEngine\window;C:\workspace\cpp\projects\ArchEngine\ArchEngine\rendering;C:\workspace\cpp\projects\ArchEngine\ArchEngine\input;C:\workspace\cpp\projects\ArchEngine\thirdparty\glad\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\sdl2\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\assimp\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\stb;C:\workspace\cpp\projects\ArchEngine\thirdparty\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\ArchEngine;$(SolutionDir)\ArchEngine\util;$(SolutionDir)\ArchEngine\engine;$(SolutionDir)\ArchEngine\window;$(SolutionDir)\ArchEngine\rendering;$(SolutionDir)\ArchEngine\input;$(SolutionDir)\thirdparty\sdl2\include;$(SolutionDir)\thirdparty\assimp\include;$(SolutionDir)\thirdparty\stb;$(SolutionDir)\thirdparty\glm;$(SolutionDir)\thirdparty\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\workspace\cpp\projects\ArchEngine\thirdparty\sdl2\lib\x64;C:\workspace\cpp\projects\ArchEngine\thirdparty\assimp\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\thirdparty\sdl2\lib\x64;$(SolutionDir)\thirdparty\assimp\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;SDL2.lib;SDL2main.lib;assimp-vc140-mt.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -118,12 +119,13 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\workspace\cpp\projects\ArchEngine\ArchEngine;C:\workspace\cpp\projects\ArchEngine\ArchEngine\util;C:\workspace\cpp\projects\ArchEngine\ArchEngine\engine;C:\workspace\cpp\projects\ArchEngine\ArchEngine\window;C:\workspace\cpp\projects\ArchEngine\ArchEngine\rendering;C:\workspace\cpp\projects\ArchEngine\ArchEngine\input;C:\workspace\cpp\projects\ArchEngine\thirdparty\glad\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\sdl2\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\assimp\include;C:\workspace\cpp\projects\ArchEngine\thirdparty\stb;C:\workspace\cpp\projects\ArchEngine\thirdparty\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\ArchEngine;$(SolutionDir)\ArchEngine\util;$(SolutionDir)\ArchEngine\engine;$(SolutionDir)\ArchEngine\window;$(SolutionDir)\ArchEngine\rendering;$(SolutionDir)\ArchEngine\input;$(SolutionDir)\thirdparty\sdl2\include;$(SolutionDir)\thirdparty\assimp\include;$(SolutionDir)\thirdparty\stb;$(SolutionDir)\thirdparty\glm;$(SolutionDir)\thirdparty\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\workspace\cpp\projects\ArchEngine\thirdparty\sdl2\lib\x64;C:\workspace\cpp\projects\ArchEngine\thirdparty\assimp\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\thirdparty\sdl2\lib\x64;$(SolutionDir)\thirdparty\assimp\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;SDL2.lib;SDL2main.lib;assimp-vc140-mt.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -138,10 +140,12 @@
     <ClCompile Include="rendering\Mesh.cpp" />
     <ClCompile Include="rendering\Model.cpp" />
     <ClCompile Include="rendering\MeshInstance.cpp" />
+    <ClCompile Include="rendering\ModelInstance.cpp" />
     <ClCompile Include="rendering\RenderSystem.cpp" />
     <ClCompile Include="rendering\ShaderProgram.cpp" />
-    <ClCompile Include="rendering\Texture.cpp" />
+    <ClCompile Include="util\AssetManager.cpp" />
     <ClCompile Include="util\glad.c" />
+    <ClCompile Include="util\System.cpp" />
     <ClCompile Include="util\Timer.cpp" />
     <ClCompile Include="window\Window.cpp" />
     <ClCompile Include="window\WindowSystem.cpp" />
@@ -157,10 +161,13 @@
     <ClInclude Include="rendering\Mesh.h" />
     <ClInclude Include="rendering\Model.h" />
     <ClInclude Include="rendering\MeshInstance.h" />
+    <ClInclude Include="rendering\ModelInstance.h" />
     <ClInclude Include="rendering\RenderSystem.h" />
     <ClInclude Include="rendering\ShaderProgram.h" />
     <ClInclude Include="rendering\Texture.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="util\AssetManager.h" />
+    <ClInclude Include="util\System.h" />
     <ClInclude Include="util\Timer.h" />
     <ClInclude Include="window\Window.h" />
     <ClInclude Include="window\WindowSystem.h" />

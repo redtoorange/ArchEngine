@@ -7,6 +7,7 @@ namespace arch {
 	class WindowSystem;
 	class InputSystem;
 	class RenderSystem;
+	class AssetManager;
 
 	class Engine {
 	public:
@@ -29,6 +30,7 @@ namespace arch {
 		std::unique_ptr<WindowSystem> windowSystem = nullptr;
 		std::unique_ptr<InputSystem> inputSystem = nullptr;
 		std::unique_ptr<RenderSystem> renderSystem = nullptr;
+		std::unique_ptr<AssetManager> assetManager = nullptr;
 
 		Timer timer;
 	};

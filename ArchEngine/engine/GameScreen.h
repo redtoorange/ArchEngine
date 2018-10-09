@@ -5,6 +5,7 @@
 
 
 namespace arch {
+	class ModelInstance;
 	class Camera;
 	class Mesh;
 	class ShaderProgram;
@@ -30,6 +31,9 @@ namespace arch {
 		std::unique_ptr<Mesh> mesh;
 		std::unique_ptr<ShaderProgram> shader;
 		std::unique_ptr<Camera> camera;
+
+		std::unique_ptr<Model> nanoSuit;
+		std::unique_ptr<ModelInstance> nanoSuitInst;
 
 		void HandleMouse();
 	};

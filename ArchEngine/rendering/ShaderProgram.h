@@ -14,6 +14,8 @@ namespace arch {
 
 		GLint GetUniformLocation(const std::string& name) const;
 
+		void SetUniformFloat(const std::string& name, const float& data) const;
+
 		void SetUniformMat4(const std::string& name, const glm::mat4& matrix) const;
 
 		void SetUniformVec4(const std::string& name, const glm::vec4& vector) const;

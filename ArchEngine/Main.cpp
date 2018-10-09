@@ -1,9 +1,5 @@
-#ifdef _WIN32
-#define APIENTRY __stdcall
-#endif
-#include <glad/glad.h>
 #include <SDL.h>
-
+#include <glad/glad.h>
 
 #include "Model.h"
 #include "Mesh.h"
@@ -17,25 +13,17 @@ void Init() {
 
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-
-	
-	
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);	
 }
 
 int main(int argc, char* argv[]) {
 	Init();
 
 	arch::Engine engine;
-	
-	if (!gladLoadGLLoader(SDL_GL_GetProcAddress))
-		std::exception("Failed to initialize OpenGL context");
-
-	SDL_GL_SetSwapInterval(1);
+	SDL_GL_SetSwapInterval(0);
 	
 	std::unique_ptr<arch::GameScreen> gameScreen = std::make_unique<arch::GameScreen>();
 	engine.SetScreen(gameScreen.get());
-
 	engine.Run();
 
 	SDL_Quit();

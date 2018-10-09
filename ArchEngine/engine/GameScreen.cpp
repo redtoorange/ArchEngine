@@ -5,6 +5,7 @@
 #include <SDL.h>
 #include <iostream>
 #include "InputSystem.h"
+#include "ModelInstance.h"
 
 namespace arch {
 	namespace {
@@ -26,16 +27,20 @@ namespace arch {
 				0, 2, 1,
 				0, 3, 2 
 		};
+		const std::vector<Texture> textures = {};
 	}
 
 	GameScreen::GameScreen() {
-		mesh = std::make_unique<Mesh>(positions, colors, uvs, normals, indices);
+		mesh = std::make_unique<Mesh>(positions, colors, uvs, normals, indices, textures);
 		shader = std::make_unique<ShaderProgram>(
 			"C:\\workspace\\cpp\\projects\\ArchEngine\\shaders\\basic.vert", 
 			"C:\\workspace\\cpp\\projects\\ArchEngine\\shaders\\basic.frag");
 		instance = std::make_unique<MeshInstance>(mesh.get());
 		camera = std::make_unique<Camera>();
 		SDL_SetRelativeMouseMode(SDL_TRUE);
+
+		nanoSuit = std::make_unique<Model>("C:\\workspace\\cpp\\projects\\ArchEngine\\assets\\nano\\nanosuit.obj");
+		nanoSuitInst = std::make_unique<ModelInstance>(nanoSuit.get());
 	}
 
 	GameScreen::~GameScreen() {}
@@ -60,9 +65,9 @@ namespace arch {
 
 		// Up down
 		if (input->IsKeyPressed(SDL_SCANCODE_SPACE))
-			inputDelta.y -= 1;
-		if (input->IsKeyPressed(SDL_SCANCODE_LCTRL))
 			inputDelta.y += 1;
+		if (input->IsKeyPressed(SDL_SCANCODE_LCTRL))
+			inputDelta.y -= 1;
 
 		if (inputDelta.x != 0 || inputDelta.y != 0 || inputDelta.z != 0) {
 			inputDelta = glm::normalize(inputDelta) * deltaTime * speed;
@@ -72,7 +77,7 @@ namespace arch {
 
 	void GameScreen::HandleMouse() {
 		MouseState state = InputSystem::singleton->GetRelativeMouseState();
-		float mouseSensitivity = 0.05;
+		float mouseSensitivity = 0.05f;
 		
 		camera->Rotate(-state.y * mouseSensitivity, 0, state.x * mouseSensitivity);
 
@@ -89,7 +94,7 @@ namespace arch {
 		HandleKeys(camera.get(), deltaTime);
 		HandleMouse();
 
-		instance->Rotate(0, 100 * deltaTime, 0);
+		// instance->Rotate(0, 100 * deltaTime, 0);
 		camera->UpdateCamera();
 	}
 
@@ -99,7 +104,8 @@ namespace arch {
 		shader->SetUniformMat4("projection", camera->GetProjectionMatrix());
 		shader->SetUniformMat4("view", camera->GetViewMatrix());
 
-		instance->Render(*shader);
+		// instance->Render(*shader);
+		nanoSuitInst->Render(*shader);
 	}
 
 	void GameScreen::Start() {

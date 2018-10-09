@@ -110,6 +110,10 @@ namespace arch {
 		return glGetUniformLocation(m_programID, name.c_str());
 	}
 
+	void ShaderProgram::SetUniformFloat(const std::string& name, const float& data) const {
+		glUniform1f(GetUniformLocation(name), data);
+	}
+
 	void ShaderProgram::SetUniformMat4(const std::string& name, const glm::mat4& matrix) const {
 		glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, glm::value_ptr(matrix));
 	}
