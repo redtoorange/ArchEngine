@@ -137,6 +137,7 @@
     <ClCompile Include="input\InputSystem.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="rendering\Camera.cpp" />
+    <ClCompile Include="rendering\Light.cpp" />
     <ClCompile Include="rendering\Mesh.cpp" />
     <ClCompile Include="rendering\Model.cpp" />
     <ClCompile Include="rendering\MeshInstance.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="input\InputEvent.h" />
     <ClInclude Include="input\InputSystem.h" />
     <ClInclude Include="rendering\Camera.h" />
+    <ClInclude Include="rendering\Light.h" />
     <ClInclude Include="rendering\Mesh.h" />
     <ClInclude Include="rendering\Model.h" />
     <ClInclude Include="rendering\MeshInstance.h" />

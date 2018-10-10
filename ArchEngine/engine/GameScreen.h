@@ -2,7 +2,7 @@
 #include "IScreen.h"
 #include <memory>
 #include "MeshInstance.h"
-
+#include "Light.h"
 
 namespace arch {
 	class ModelInstance;
@@ -35,7 +35,10 @@ namespace arch {
 		std::unique_ptr<Model> nanoSuit;
 		std::unique_ptr<ModelInstance> nanoSuitInst;
 
+		std::unique_ptr<Light> light;		
+
 		void HandleMouse();
+		void HandleKeys(float deltaTime);
 	};
 
 }

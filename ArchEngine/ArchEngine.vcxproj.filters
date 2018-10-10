@@ -99,6 +99,9 @@
     <ClCompile Include="util\glad.c">
       <Filter>Source Files\util</Filter>
     </ClCompile>
+    <ClCompile Include="rendering\Light.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="input\InputSystem.h">
@@ -159,6 +162,9 @@
       <Filter>Header Files\util</Filter>
     </ClInclude>
     <ClInclude Include="rendering\ModelInstance.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="rendering\Light.h">
       <Filter>Header Files\rendering</Filter>
     </ClInclude>
   </ItemGroup>

@@ -40,12 +40,16 @@ namespace arch {
 		SDL_SetRelativeMouseMode(SDL_TRUE);
 
 		nanoSuit = std::make_unique<Model>("C:\\workspace\\cpp\\projects\\ArchEngine\\assets\\nano\\nanosuit.obj");
+		// nanoSuit = std::make_unique<Model>("C:\\workspace\\cpp\\projects\\ArchEngine\\assets\\kenney\\station.obj");
 		nanoSuitInst = std::make_unique<ModelInstance>(nanoSuit.get());
+		nanoSuitInst->Translate(0, 0, -5);
+
+		light = std::make_unique<Light>(glm::vec3{0, 10, 0}, glm::vec4{1, 1, 1, 1});
 	}
 
 	GameScreen::~GameScreen() {}
 
-	void HandleKeys(Camera* camera, float deltaTime) {
+	void GameScreen::HandleKeys(float deltaTime) {
 		auto input = InputSystem::singleton;
 
 		glm::vec3 inputDelta{ 0, 0, 0 };
@@ -62,6 +66,17 @@ namespace arch {
 			inputDelta.x -= 1;
 		if (input->IsKeyPressed(SDL_SCANCODE_D))
 			inputDelta.x += 1;
+
+		// Change Color of Light
+		if (input->IsKeyPressed(SDL_SCANCODE_R))
+			light->SetColor({1, 0, 0, 1});
+		if (input->IsKeyPressed(SDL_SCANCODE_G))
+			light->SetColor({ 0, 1, 0, 1 });
+		if (input->IsKeyPressed(SDL_SCANCODE_B))
+			light->SetColor({ 0, 0, 1, 1 });
+		if (input->IsKeyPressed(SDL_SCANCODE_T))
+			light->SetColor({ 1, 1, 1, 1 });
+;
 
 		// Up down
 		if (input->IsKeyPressed(SDL_SCANCODE_SPACE))
@@ -91,7 +106,7 @@ namespace arch {
 	}
 
 	void GameScreen::Update(float deltaTime) {
-		HandleKeys(camera.get(), deltaTime);
+		HandleKeys(deltaTime);
 		HandleMouse();
 
 		// instance->Rotate(0, 100 * deltaTime, 0);
@@ -104,6 +119,8 @@ namespace arch {
 		shader->SetUniformMat4("projection", camera->GetProjectionMatrix());
 		shader->SetUniformMat4("view", camera->GetViewMatrix());
 
+		light->Render(*shader);
+		
 		// instance->Render(*shader);
 		nanoSuitInst->Render(*shader);
 	}
