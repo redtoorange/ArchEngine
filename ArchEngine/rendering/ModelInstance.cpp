@@ -67,10 +67,23 @@ namespace arch {
 		return m_scale;
 	}
 
-	void ModelInstance::Render(ShaderProgram& shader) {
-		shader.BindProgram();
+	/**
+	 * @shader Shader to upload this instance's transform to.  This shader will be passed down the the 
+	 * source model.
+	 */
+	void ModelInstance::PrepareToRender(ShaderProgram& shader) {
 		shader.SetUniformMat4("transform", GetTransform());
-		m_sourceModel->Render(shader);
+	}
+
+	void ModelInstance::CleanUpFromRender() {
+		// Stub
+	}
+
+	/**
+	 * @return The source model of this ModelInstance.
+	 */
+	Model* ModelInstance::GetModel() const {
+		return m_sourceModel;
 	}
 
 	glm::mat4 ModelInstance::GetTransform() const {

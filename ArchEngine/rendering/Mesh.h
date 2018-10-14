@@ -17,7 +17,11 @@ namespace arch {
 
 		~Mesh();
 
+		void PrepareToRender(ShaderProgram& shader);
+
 		void Render(ShaderProgram& shader);
+
+		void CleanUpFromRender();
 
 		void Destroy();
 

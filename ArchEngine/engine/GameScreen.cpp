@@ -6,6 +6,8 @@
 #include <iostream>
 #include "InputSystem.h"
 #include "ModelInstance.h"
+#include "PerspectiveCamera.h"
+#include "RenderSystem.h"
 
 namespace arch {
 	namespace {
@@ -36,13 +38,26 @@ namespace arch {
 			"C:\\workspace\\cpp\\projects\\ArchEngine\\shaders\\basic.vert", 
 			"C:\\workspace\\cpp\\projects\\ArchEngine\\shaders\\basic.frag");
 		instance = std::make_unique<MeshInstance>(mesh.get());
-		camera = std::make_unique<Camera>();
+		camera = std::make_unique<PerspectiveCamera>();
 		SDL_SetRelativeMouseMode(SDL_TRUE);
 
 		nanoSuit = std::make_unique<Model>("C:\\workspace\\cpp\\projects\\ArchEngine\\assets\\nano\\nanosuit.obj");
 		// nanoSuit = std::make_unique<Model>("C:\\workspace\\cpp\\projects\\ArchEngine\\assets\\kenney\\station.obj");
-		nanoSuitInst = std::make_unique<ModelInstance>(nanoSuit.get());
-		nanoSuitInst->Translate(0, 0, -5);
+		nanoSuitInst1 = std::make_unique<ModelInstance>(nanoSuit.get());
+		nanoSuitInst1->Translate(10, 0, -5);
+		nanoSuitInst1->SetScale(0.5f, 0.5f, 0.5f);
+		
+		nanoSuitInst2 = std::make_unique<ModelInstance>(nanoSuit.get());
+		nanoSuitInst2->Translate(5, 0, -5);
+		nanoSuitInst2->SetScale(0.5f, 0.5f, 0.5f);
+
+		nanoSuitInst3 = std::make_unique<ModelInstance>(nanoSuit.get());
+		nanoSuitInst3->Translate(0, 0, -5);
+		nanoSuitInst3->SetScale(0.5f, 0.5f, 0.5f);
+
+		nanoSuitInst4 = std::make_unique<ModelInstance>(nanoSuit.get());
+		nanoSuitInst4->Translate(-5, 0, -5);
+		nanoSuitInst4->SetScale(0.5f, 0.5f, 0.5f);
 
 		light = std::make_unique<Light>(glm::vec3{0, 10, 0}, glm::vec4{1, 1, 1, 1});
 	}
@@ -113,16 +128,15 @@ namespace arch {
 		camera->UpdateCamera();
 	}
 
-	void GameScreen::Render() {
-
-		shader->BindProgram();
-		shader->SetUniformMat4("projection", camera->GetProjectionMatrix());
-		shader->SetUniformMat4("view", camera->GetViewMatrix());
-
+	void GameScreen::Render( RenderSystem& renderer ) {
 		light->Render(*shader);
-		
-		// instance->Render(*shader);
-		nanoSuitInst->Render(*shader);
+
+		renderer.AddModelInstance(nanoSuitInst1.get());
+		renderer.AddModelInstance(nanoSuitInst2.get());
+		renderer.AddModelInstance(nanoSuitInst3.get());
+		renderer.AddModelInstance(nanoSuitInst4.get());
+
+		renderer.RenderModels(camera.get(), shader.get());
 	}
 
 	void GameScreen::Start() {

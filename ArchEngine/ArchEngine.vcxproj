@@ -136,12 +136,12 @@
     <ClCompile Include="input\InputEvent.cpp" />
     <ClCompile Include="input\InputSystem.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="rendering\Camera.cpp" />
     <ClCompile Include="rendering\Light.cpp" />
     <ClCompile Include="rendering\Mesh.cpp" />
     <ClCompile Include="rendering\Model.cpp" />
     <ClCompile Include="rendering\MeshInstance.cpp" />
     <ClCompile Include="rendering\ModelInstance.cpp" />
+    <ClCompile Include="rendering\PerspectiveCamera.cpp" />
     <ClCompile Include="rendering\RenderSystem.cpp" />
     <ClCompile Include="rendering\ShaderProgram.cpp" />
     <ClCompile Include="util\AssetManager.cpp" />
@@ -164,6 +164,7 @@
     <ClInclude Include="rendering\Model.h" />
     <ClInclude Include="rendering\MeshInstance.h" />
     <ClInclude Include="rendering\ModelInstance.h" />
+    <ClInclude Include="rendering\PerspectiveCamera.h" />
     <ClInclude Include="rendering\RenderSystem.h" />
     <ClInclude Include="rendering\ShaderProgram.h" />
     <ClInclude Include="rendering\Texture.h" />

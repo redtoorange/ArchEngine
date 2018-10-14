@@ -41,7 +41,11 @@ namespace arch {
 
 		glm::mat4 GetTransform() const;
 
-		void Render(ShaderProgram& shader);
+		void PrepareToRender(ShaderProgram& shader);
+
+		void CleanUpFromRender();
+
+		Model* GetModel() const;
 
 	private:
 		glm::vec3 m_position{ 0, 0, 0 };

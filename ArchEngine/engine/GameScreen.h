@@ -5,6 +5,7 @@
 #include "Light.h"
 
 namespace arch {
+	class RenderSystem;
 	class ModelInstance;
 	class Camera;
 	class Mesh;
@@ -18,7 +19,7 @@ namespace arch {
 
 		void Update(float deltaTime) override;
 
-		void Render() override;
+		void Render(RenderSystem& renderer) override;
 
 		void Start() override;
 
@@ -33,7 +34,11 @@ namespace arch {
 		std::unique_ptr<Camera> camera;
 
 		std::unique_ptr<Model> nanoSuit;
-		std::unique_ptr<ModelInstance> nanoSuitInst;
+
+		std::unique_ptr<ModelInstance> nanoSuitInst1;
+		std::unique_ptr<ModelInstance> nanoSuitInst2;
+		std::unique_ptr<ModelInstance> nanoSuitInst3;
+		std::unique_ptr<ModelInstance> nanoSuitInst4;
 
 		std::unique_ptr<Light> light;		
 

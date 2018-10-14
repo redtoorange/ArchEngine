@@ -67,28 +67,41 @@ namespace arch {
 		glDeleteVertexArrays(1, &m_vao);
 	}
 
-	void Mesh::Render(ShaderProgram& shader) {
-		 unsigned int diffuseNum = 1;
-		 unsigned int specularNum = 1;
-		 for (unsigned int i = 0; i < m_textures.size(); i++) {
-		 	glActiveTexture(GL_TEXTURE0 + i);
-  
-		 	std::string number;
-		 	std::string name = m_textures[i].type;
-  
-		 	if(name == "texture_diffuse") 
-		 		number = std::to_string(diffuseNum++);
-		 	else if(name == "texture_specular")
-		 		number = std::to_string(specularNum++);
-  
-		 	shader.SetUniformFloat(("material" + name + number).c_str(), i);
-		 	glBindTexture(GL_TEXTURE_2D, m_textures[i].id);
-		 		
-		 }
-		 glActiveTexture(GL_TEXTURE0);
+	/**
+	 * Prepare resources that are needed for the model to render.
+	 */
+	void Mesh::PrepareToRender(ShaderProgram& shader) {
+		unsigned int diffuseNum = 1;
+		unsigned int specularNum = 1;
+		for (unsigned int i = 0; i < m_textures.size(); i++) {
+			glActiveTexture(GL_TEXTURE0 + i);
 
+			std::string number;
+			std::string name = m_textures[i].type;
+
+			if (name == "texture_diffuse")
+				number = std::to_string(diffuseNum++);
+			else if (name == "texture_specular")
+				number = std::to_string(specularNum++);
+
+			shader.SetUniformFloat(("material" + name + number).c_str(), i);
+			glBindTexture(GL_TEXTURE_2D, m_textures[i].id);
+		}
+
+		glActiveTexture(GL_TEXTURE0);
 		glBindVertexArray(m_vao);
+	}
+
+	void Mesh::Render(ShaderProgram& shader) {
 		glDrawElements(GL_TRIANGLES, m_indexCount, GL_UNSIGNED_INT, 0);
+	}
+
+	/**
+	 * Cleanup resources that are loaded by the model to render.
+	 */
+	void Mesh::CleanUpFromRender() {
 		glBindVertexArray(0);
 	}
+
+	
 }

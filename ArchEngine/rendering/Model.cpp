@@ -18,7 +18,9 @@ namespace arch {
 
 	void Model::Render(ShaderProgram& shader) {
 		for (unsigned int i = 0; i < m_modelMeshes.size(); i++) {
+			m_modelMeshes[i]->PrepareToRender(shader);
 			m_modelMeshes[i]->Render(shader);
+			m_modelMeshes[i]->CleanUpFromRender();
 		}
 	}
 

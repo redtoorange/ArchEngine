@@ -1,19 +1,17 @@
-﻿#include "Camera.h"
+﻿#include "PerspectiveCamera.h"
 #include <glm/gtc/matrix_transform.hpp>
-#include <SDL.h>
 
 namespace arch {
-
-	Camera::Camera() {
+	PerspectiveCamera::PerspectiveCamera() {
 		UpdateCamera();
 	}
 
-	void Camera::Translate(float x, float y, float z) {
-		Translate({x, y, z});
+	void PerspectiveCamera::Translate(float x, float y, float z) {
+		Translate({ x, y, z });
 	}
 
-	void Camera::Translate(const glm::vec3& amount) {
-		glm::vec3 delta{0, 0, 0};
+	void PerspectiveCamera::Translate(const glm::vec3& amount) {
+		glm::vec3 delta{ 0, 0, 0 };
 
 		delta += Front * amount.z;
 		delta += Right * amount.x;
@@ -22,24 +20,24 @@ namespace arch {
 		position += delta;
 	}
 
-	void Camera::Rotate(float x, float y, float z) {
-		Rotate({x, y, z});
+	void PerspectiveCamera::Rotate(float x, float y, float z) {
+		Rotate({ x, y, z });
 	}
 
-	void Camera::Rotate(const glm::vec3& amount) {
+	void PerspectiveCamera::Rotate(const glm::vec3& amount) {
 		rotation += amount;
 		UpdateCamera();
 	}
 
-	glm::mat4 Camera::GetProjectionMatrix() const {
+	glm::mat4 PerspectiveCamera::GetProjectionMatrix() const {
 		return glm::perspective(glm::radians(fieldOfView), aspectRatio, nearClipPlane, farClipPlane);
 	}
 
-	glm::mat4 Camera::GetViewMatrix() const {
+	glm::mat4 PerspectiveCamera::GetViewMatrix() const {
 		return glm::lookAt(position, position + Front, Up);
 	}
 
-	void Camera::UpdateCamera() {
+	void PerspectiveCamera::UpdateCamera() {
 		double pitch = rotation.x;
 		double yaw = rotation.z;
 

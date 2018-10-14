@@ -84,9 +84,6 @@
     <ClCompile Include="engine\GameScreen.cpp">
       <Filter>Source Files\engine</Filter>
     </ClCompile>
-    <ClCompile Include="rendering\Camera.cpp">
-      <Filter>Source Files\rendering</Filter>
-    </ClCompile>
     <ClCompile Include="util\AssetManager.cpp">
       <Filter>Source Files\util</Filter>
     </ClCompile>
@@ -100,6 +97,9 @@
       <Filter>Source Files\util</Filter>
     </ClCompile>
     <ClCompile Include="rendering\Light.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="rendering\PerspectiveCamera.cpp">
       <Filter>Source Files\rendering</Filter>
     </ClCompile>
   </ItemGroup>
@@ -165,6 +165,9 @@
       <Filter>Header Files\rendering</Filter>
     </ClInclude>
     <ClInclude Include="rendering\Light.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="rendering\PerspectiveCamera.h">
       <Filter>Header Files\rendering</Filter>
     </ClInclude>
   </ItemGroup>

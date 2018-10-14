@@ -50,7 +50,7 @@ namespace arch {
 			renderSystem->ClearScreen();
 			if (currentScreen) {
 				currentScreen->Update(timer.GetDeltaTime());
-				currentScreen->Render();
+				currentScreen->Render( *renderSystem );
 			}
 			windowSystem->SwapBuffers();
 
