@@ -12,11 +12,15 @@ namespace arch {
 	Engine::Engine() {
 		if (singleton)
 			std::runtime_error("There can only be one instance of Engine.");
-
 		singleton = this;
 
-		// Start all subsystems
+		SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+
 		windowSystem = std::make_unique<WindowSystem>();
+		SDL_GL_SetSwapInterval(0);
 
 		if (!gladLoadGLLoader(SDL_GL_GetProcAddress))
 			std::exception("Failed to initialize OpenGL context");
@@ -34,6 +38,7 @@ namespace arch {
 		assetManager.reset();
 
 		singleton = nullptr;
+		SDL_Quit();
 	}
 
 	void Engine::Run() {

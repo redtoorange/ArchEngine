@@ -87,7 +87,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\ArchEngine;$(SolutionDir)\ArchEngine\util;$(SolutionDir)\ArchEngine\engine;$(SolutionDir)\ArchEngine\window;$(SolutionDir)\ArchEngine\rendering;$(SolutionDir)\ArchEngine\input;$(SolutionDir)\thirdparty\sdl2\include;$(SolutionDir)\thirdparty\assimp\include;$(SolutionDir)\thirdparty\stb;$(SolutionDir)\thirdparty\glm;$(SolutionDir)\thirdparty\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\ArchEngine\engine;$(SolutionDir)\ArchEngine\engine\util;$(SolutionDir)\ArchEngine\engine\window;$(SolutionDir)\ArchEngine\engine\rendering;$(SolutionDir)\ArchEngine\game;$(SolutionDir)\ArchEngine\game\entity;$(SolutionDir)\ArchEngine\game\component;$(SolutionDir)\ArchEngine\engine\input;$(SolutionDir)\thirdparty\sdl2\include;$(SolutionDir)\thirdparty\assimp\include;$(SolutionDir)\thirdparty\stb;$(SolutionDir)\thirdparty\glm;$(SolutionDir)\thirdparty\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -119,7 +119,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\ArchEngine;$(SolutionDir)\ArchEngine\util;$(SolutionDir)\ArchEngine\engine;$(SolutionDir)\ArchEngine\window;$(SolutionDir)\ArchEngine\rendering;$(SolutionDir)\ArchEngine\input;$(SolutionDir)\thirdparty\sdl2\include;$(SolutionDir)\thirdparty\assimp\include;$(SolutionDir)\thirdparty\stb;$(SolutionDir)\thirdparty\glm;$(SolutionDir)\thirdparty\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\ArchEngine\engine;$(SolutionDir)\ArchEngine\engine\util;$(SolutionDir)\ArchEngine\engine\window;$(SolutionDir)\ArchEngine\engine\rendering;$(SolutionDir)\ArchEngine\game;$(SolutionDir)\ArchEngine\game\entity;$(SolutionDir)\ArchEngine\game\component;$(SolutionDir)\ArchEngine\engine\input;$(SolutionDir)\thirdparty\sdl2\include;$(SolutionDir)\thirdparty\assimp\include;$(SolutionDir)\thirdparty\stb;$(SolutionDir)\thirdparty\glm;$(SolutionDir)\thirdparty\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -133,47 +133,50 @@
   <ItemGroup>
     <ClCompile Include="engine\Engine.cpp" />
     <ClCompile Include="engine\GameScreen.cpp" />
-    <ClCompile Include="input\InputEvent.cpp" />
-    <ClCompile Include="input\InputSystem.cpp" />
+    <ClCompile Include="engine\input\InputEvent.cpp" />
+    <ClCompile Include="engine\input\InputSystem.cpp" />
+    <ClCompile Include="engine\rendering\Light.cpp" />
+    <ClCompile Include="engine\rendering\Mesh.cpp" />
+    <ClCompile Include="engine\rendering\MeshInstance.cpp" />
+    <ClCompile Include="engine\rendering\Model.cpp" />
+    <ClCompile Include="engine\rendering\ModelInstance.cpp" />
+    <ClCompile Include="engine\rendering\PerspectiveCamera.cpp" />
+    <ClCompile Include="engine\rendering\RenderSystem.cpp" />
+    <ClCompile Include="engine\rendering\ShaderProgram.cpp" />
+    <ClCompile Include="engine\util\AssetManager.cpp" />
+    <ClCompile Include="engine\util\glad.c" />
+    <ClCompile Include="engine\util\System.cpp" />
+    <ClCompile Include="engine\util\Timer.cpp" />
+    <ClCompile Include="engine\window\Window.cpp" />
+    <ClCompile Include="engine\window\WindowSystem.cpp" />
+    <ClCompile Include="game\component\TransformComponent.cpp" />
+    <ClCompile Include="game\entity\Entity.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="rendering\Light.cpp" />
-    <ClCompile Include="rendering\Mesh.cpp" />
-    <ClCompile Include="rendering\Model.cpp" />
-    <ClCompile Include="rendering\MeshInstance.cpp" />
-    <ClCompile Include="rendering\ModelInstance.cpp" />
-    <ClCompile Include="rendering\PerspectiveCamera.cpp" />
-    <ClCompile Include="rendering\RenderSystem.cpp" />
-    <ClCompile Include="rendering\ShaderProgram.cpp" />
-    <ClCompile Include="util\AssetManager.cpp" />
-    <ClCompile Include="util\glad.c" />
-    <ClCompile Include="util\System.cpp" />
-    <ClCompile Include="util\Timer.cpp" />
-    <ClCompile Include="window\Window.cpp" />
-    <ClCompile Include="window\WindowSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\Engine.h" />
     <ClInclude Include="engine\GameScreen.h" />
+    <ClInclude Include="engine\input\IInputListener.h" />
+    <ClInclude Include="engine\input\InputEvent.h" />
+    <ClInclude Include="engine\input\InputSystem.h" />
     <ClInclude Include="engine\IScreen.h" />
-    <ClInclude Include="input\IInputListener.h" />
-    <ClInclude Include="input\InputEvent.h" />
-    <ClInclude Include="input\InputSystem.h" />
-    <ClInclude Include="rendering\Camera.h" />
-    <ClInclude Include="rendering\Light.h" />
-    <ClInclude Include="rendering\Mesh.h" />
-    <ClInclude Include="rendering\Model.h" />
-    <ClInclude Include="rendering\MeshInstance.h" />
-    <ClInclude Include="rendering\ModelInstance.h" />
-    <ClInclude Include="rendering\PerspectiveCamera.h" />
-    <ClInclude Include="rendering\RenderSystem.h" />
-    <ClInclude Include="rendering\ShaderProgram.h" />
-    <ClInclude Include="rendering\Texture.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="util\AssetManager.h" />
-    <ClInclude Include="util\System.h" />
-    <ClInclude Include="util\Timer.h" />
-    <ClInclude Include="window\Window.h" />
-    <ClInclude Include="window\WindowSystem.h" />
+    <ClInclude Include="engine\rendering\Camera.h" />
+    <ClInclude Include="engine\rendering\Light.h" />
+    <ClInclude Include="engine\rendering\Mesh.h" />
+    <ClInclude Include="engine\rendering\MeshInstance.h" />
+    <ClInclude Include="engine\rendering\Model.h" />
+    <ClInclude Include="engine\rendering\ModelInstance.h" />
+    <ClInclude Include="engine\rendering\PerspectiveCamera.h" />
+    <ClInclude Include="engine\rendering\RenderSystem.h" />
+    <ClInclude Include="engine\rendering\ShaderProgram.h" />
+    <ClInclude Include="engine\rendering\Texture.h" />
+    <ClInclude Include="engine\util\AssetManager.h" />
+    <ClInclude Include="engine\util\System.h" />
+    <ClInclude Include="engine\util\Timer.h" />
+    <ClInclude Include="engine\window\Window.h" />
+    <ClInclude Include="engine\window\WindowSystem.h" />
+    <ClInclude Include="game\component\TransformComponent.h" />
+    <ClInclude Include="game\entity\Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\shaders\basic.frag" />

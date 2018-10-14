@@ -13,133 +13,121 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\input">
-      <UniqueIdentifier>{8c84d1a8-9013-4a61-bd4d-e67ae6e8caad}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\input">
-      <UniqueIdentifier>{907f68b7-b0e3-4244-b388-44ebe65be18f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\window">
-      <UniqueIdentifier>{063fad5e-1085-4eea-9269-f2e08629e0a2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\rendering">
-      <UniqueIdentifier>{dd8f8d03-9ff7-4c33-b00c-add6c310f6cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\rendering">
-      <UniqueIdentifier>{5aff2ca5-b5c7-41c8-b7d8-8c22ce0fb86f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\window">
-      <UniqueIdentifier>{a02fb565-72e7-4dd8-8ef1-c5a9ffbbb3b7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\engine">
       <UniqueIdentifier>{496e4dcc-4f1c-4044-a7a2-c00c41d7fe24}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\util">
-      <UniqueIdentifier>{a6560d45-8fd4-45a0-aa2b-26bfeac66028}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\engine">
       <UniqueIdentifier>{97f06c74-6d3e-4080-8ecf-949cb8ad9aa7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\util">
+    <Filter Include="Header Files\engine\input">
+      <UniqueIdentifier>{8c84d1a8-9013-4a61-bd4d-e67ae6e8caad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine\rendering">
+      <UniqueIdentifier>{dd8f8d03-9ff7-4c33-b00c-add6c310f6cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine\util">
       <UniqueIdentifier>{b6e34791-94c6-433e-a111-da1ef443e630}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\engine\window">
+      <UniqueIdentifier>{063fad5e-1085-4eea-9269-f2e08629e0a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\input">
+      <UniqueIdentifier>{907f68b7-b0e3-4244-b388-44ebe65be18f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\rendering">
+      <UniqueIdentifier>{5aff2ca5-b5c7-41c8-b7d8-8c22ce0fb86f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\util">
+      <UniqueIdentifier>{a6560d45-8fd4-45a0-aa2b-26bfeac66028}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\window">
+      <UniqueIdentifier>{a02fb565-72e7-4dd8-8ef1-c5a9ffbbb3b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game">
+      <UniqueIdentifier>{c83d46ec-2d2a-4063-a7b9-141c2100ea4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game\entity">
+      <UniqueIdentifier>{cf11d18a-91d4-41d4-8195-a11d371c1a83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game\component">
+      <UniqueIdentifier>{54bba13f-a369-4693-9963-963aa6ce2c25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\game">
+      <UniqueIdentifier>{ae93d26b-eaa3-46e5-a709-424703503ad0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\game\entity">
+      <UniqueIdentifier>{6f0a3a78-be29-4a98-8a31-f82eff75d601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\game\component">
+      <UniqueIdentifier>{4c9470b3-e8b3-44da-bc5d-b5cfeb775734}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="input\InputSystem.cpp">
-      <Filter>Source Files\input</Filter>
+    <ClCompile Include="engine\input\InputSystem.cpp">
+      <Filter>Source Files\engine\input</Filter>
     </ClCompile>
-    <ClCompile Include="window\Window.cpp">
-      <Filter>Source Files\window</Filter>
+    <ClCompile Include="engine\input\InputEvent.cpp">
+      <Filter>Source Files\engine\input</Filter>
     </ClCompile>
-    <ClCompile Include="window\WindowSystem.cpp">
-      <Filter>Source Files\window</Filter>
+    <ClCompile Include="engine\rendering\Light.cpp">
+      <Filter>Source Files\engine\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="rendering\RenderSystem.cpp">
-      <Filter>Source Files\rendering</Filter>
+    <ClCompile Include="engine\rendering\Mesh.cpp">
+      <Filter>Source Files\engine\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="input\InputEvent.cpp">
-      <Filter>Source Files\input</Filter>
+    <ClCompile Include="engine\rendering\MeshInstance.cpp">
+      <Filter>Source Files\engine\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="rendering\Mesh.cpp">
-      <Filter>Source Files\rendering</Filter>
+    <ClCompile Include="engine\rendering\Model.cpp">
+      <Filter>Source Files\engine\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="rendering\Model.cpp">
-      <Filter>Source Files\rendering</Filter>
+    <ClCompile Include="engine\rendering\ModelInstance.cpp">
+      <Filter>Source Files\engine\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="rendering\ShaderProgram.cpp">
-      <Filter>Source Files\rendering</Filter>
+    <ClCompile Include="engine\rendering\PerspectiveCamera.cpp">
+      <Filter>Source Files\engine\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="rendering\MeshInstance.cpp">
-      <Filter>Source Files\rendering</Filter>
+    <ClCompile Include="engine\rendering\RenderSystem.cpp">
+      <Filter>Source Files\engine\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="util\Timer.cpp">
-      <Filter>Source Files\util</Filter>
+    <ClCompile Include="engine\rendering\ShaderProgram.cpp">
+      <Filter>Source Files\engine\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="engine\Engine.cpp">
-      <Filter>Source Files\engine</Filter>
+    <ClCompile Include="engine\util\AssetManager.cpp">
+      <Filter>Source Files\engine\util</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\util\glad.c">
+      <Filter>Source Files\engine\util</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\util\System.cpp">
+      <Filter>Source Files\engine\util</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\util\Timer.cpp">
+      <Filter>Source Files\engine\util</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\window\Window.cpp">
+      <Filter>Source Files\engine\window</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\window\WindowSystem.cpp">
+      <Filter>Source Files\engine\window</Filter>
     </ClCompile>
     <ClCompile Include="engine\GameScreen.cpp">
       <Filter>Source Files\engine</Filter>
     </ClCompile>
-    <ClCompile Include="util\AssetManager.cpp">
-      <Filter>Source Files\util</Filter>
+    <ClCompile Include="engine\Engine.cpp">
+      <Filter>Source Files\engine</Filter>
     </ClCompile>
-    <ClCompile Include="util\System.cpp">
-      <Filter>Source Files\util</Filter>
+    <ClCompile Include="game\entity\Entity.cpp">
+      <Filter>Source Files\game\entity</Filter>
     </ClCompile>
-    <ClCompile Include="rendering\ModelInstance.cpp">
-      <Filter>Source Files\rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="util\glad.c">
-      <Filter>Source Files\util</Filter>
-    </ClCompile>
-    <ClCompile Include="rendering\Light.cpp">
-      <Filter>Source Files\rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="rendering\PerspectiveCamera.cpp">
-      <Filter>Source Files\rendering</Filter>
+    <ClCompile Include="game\component\TransformComponent.cpp">
+      <Filter>Source Files\game\component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="input\InputSystem.h">
-      <Filter>Header Files\input</Filter>
-    </ClInclude>
-    <ClInclude Include="input\IInputListener.h">
-      <Filter>Header Files\input</Filter>
-    </ClInclude>
-    <ClInclude Include="rendering\RenderSystem.h">
-      <Filter>Header Files\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="window\WindowSystem.h">
-      <Filter>Header Files\window</Filter>
-    </ClInclude>
-    <ClInclude Include="window\Window.h">
-      <Filter>Header Files\window</Filter>
-    </ClInclude>
-    <ClInclude Include="input\InputEvent.h">
-      <Filter>Header Files\input</Filter>
-    </ClInclude>
-    <ClInclude Include="rendering\Texture.h">
-      <Filter>Header Files\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="rendering\Model.h">
-      <Filter>Header Files\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="rendering\Mesh.h">
-      <Filter>Header Files\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="rendering\ShaderProgram.h">
-      <Filter>Header Files\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="rendering\MeshInstance.h">
-      <Filter>Header Files\rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="rendering\Camera.h">
-      <Filter>Header Files\rendering</Filter>
-    </ClInclude>
     <ClInclude Include="engine\Engine.h">
       <Filter>Header Files\engine</Filter>
     </ClInclude>
@@ -149,26 +137,65 @@
     <ClInclude Include="engine\IScreen.h">
       <Filter>Header Files\engine</Filter>
     </ClInclude>
-    <ClInclude Include="util\Timer.h">
-      <Filter>Header Files\util</Filter>
+    <ClInclude Include="engine\input\IInputListener.h">
+      <Filter>Header Files\engine\input</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="engine\input\InputEvent.h">
+      <Filter>Header Files\engine\input</Filter>
     </ClInclude>
-    <ClInclude Include="util\AssetManager.h">
-      <Filter>Header Files\util</Filter>
+    <ClInclude Include="engine\input\InputSystem.h">
+      <Filter>Header Files\engine\input</Filter>
     </ClInclude>
-    <ClInclude Include="util\System.h">
-      <Filter>Header Files\util</Filter>
+    <ClInclude Include="engine\rendering\Camera.h">
+      <Filter>Header Files\engine\rendering</Filter>
     </ClInclude>
-    <ClInclude Include="rendering\ModelInstance.h">
-      <Filter>Header Files\rendering</Filter>
+    <ClInclude Include="engine\rendering\Light.h">
+      <Filter>Header Files\engine\rendering</Filter>
     </ClInclude>
-    <ClInclude Include="rendering\Light.h">
-      <Filter>Header Files\rendering</Filter>
+    <ClInclude Include="engine\rendering\Mesh.h">
+      <Filter>Header Files\engine\rendering</Filter>
     </ClInclude>
-    <ClInclude Include="rendering\PerspectiveCamera.h">
-      <Filter>Header Files\rendering</Filter>
+    <ClInclude Include="engine\rendering\MeshInstance.h">
+      <Filter>Header Files\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\Model.h">
+      <Filter>Header Files\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\ModelInstance.h">
+      <Filter>Header Files\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\PerspectiveCamera.h">
+      <Filter>Header Files\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\RenderSystem.h">
+      <Filter>Header Files\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\ShaderProgram.h">
+      <Filter>Header Files\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\rendering\Texture.h">
+      <Filter>Header Files\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\util\AssetManager.h">
+      <Filter>Header Files\engine\util</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\util\System.h">
+      <Filter>Header Files\engine\util</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\util\Timer.h">
+      <Filter>Header Files\engine\util</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\window\Window.h">
+      <Filter>Header Files\engine\window</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\window\WindowSystem.h">
+      <Filter>Header Files\engine\window</Filter>
+    </ClInclude>
+    <ClInclude Include="game\component\TransformComponent.h">
+      <Filter>Header Files\game\component</Filter>
+    </ClInclude>
+    <ClInclude Include="game\entity\Entity.h">
+      <Filter>Header Files\game\entity</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -131,12 +131,14 @@ namespace arch {
 	void GameScreen::Render( RenderSystem& renderer ) {
 		light->Render(*shader);
 
+		renderer.BeginBatch(camera.get(), shader.get());
+
 		renderer.AddModelInstance(nanoSuitInst1.get());
 		renderer.AddModelInstance(nanoSuitInst2.get());
 		renderer.AddModelInstance(nanoSuitInst3.get());
 		renderer.AddModelInstance(nanoSuitInst4.get());
 
-		renderer.RenderModels(camera.get(), shader.get());
+		renderer.EndBatch();
 	}
 
 	void GameScreen::Start() {
