@@ -16,7 +16,7 @@ namespace arch {
 		static RenderSystem* singleton;
 
 		RenderSystem();
-		
+
 		virtual ~RenderSystem();
 
 		void ClearScreen();
@@ -26,8 +26,6 @@ namespace arch {
 		void AddModelInstance(ModelInstance* modelInstance);
 
 		void EndBatch();
-
-		
 
 	private:
 		std::map<Model*, std::vector<ModelInstance*>> modelsToRender;

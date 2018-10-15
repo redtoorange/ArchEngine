@@ -4,10 +4,14 @@
 #include "GameScreen.h"
 
 int main(int argc, char* argv[]) {
+	// Start the Engine!
 	arch::Engine engine;
-	
-	std::unique_ptr<arch::GameScreen> gameScreen = std::make_unique<arch::GameScreen>();
-	engine.SetScreen(gameScreen.get());
+
+	// Load up a test screen
+	arch::GameScreen gameScreen;
+	engine.SetScreen(&gameScreen);
+
+	// Start main loop
 	engine.Run();
 
 	return 0;
