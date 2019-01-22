@@ -61,6 +61,12 @@
     <Filter Include="Header Files\game\component">
       <UniqueIdentifier>{4c9470b3-e8b3-44da-bc5d-b5cfeb775734}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\engine\ui">
+      <UniqueIdentifier>{5f2b2412-dd49-4bbf-84a5-61c2865fb643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine\ui">
+      <UniqueIdentifier>{51358bb6-986b-4701-ac9a-51f47024d0a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -125,6 +131,9 @@
     </ClCompile>
     <ClCompile Include="game\component\TransformComponent.cpp">
       <Filter>Source Files\game\component</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\UISystem.cpp">
+      <Filter>Source Files\engine\ui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="game\entity\Entity.h">
       <Filter>Header Files\game\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\UISystem.h">
+      <Filter>Header Files\engine\ui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
